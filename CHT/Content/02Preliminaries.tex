@@ -1,0 +1,106 @@
+\newpage
+\section{Preliminaries}
+\subsection{Higher categories, homotopy (co)limits and Spaces}
+
+We restrict our attention to the category $\text{Top}$ of topologcial spaces. We would like a notion of (co)limit which is invariant under homotopy. For instance, if $X \simeq X'$ then we would like the pushouts $X \sqcup_Z Y$ and $X' \sqcup_Z Y$ to be homotopy equivalent for all $Y$ and $Z$. This typically dramatically fails, for instance, if we choose $X = Y = \text{pt}$ then the pushout $X \sqcup_{S^1} Y = \text{pt} \sqcup_Z \text{pt} = \text{pt}$, but if $X = \text{pt} \simeq D^2$, the unit disk in $\mathbb{R}^2$, and in this case we have that $D^2 \sqcup_{S^1} D^2 \simeq S^2$, the sphere, and certainly $S^2 \not\simeq \text{pt}$.
+
+%There are a few ways of fixing this, and in this seminar we will opt for the notion of $\infty$-categories, and so this section provides a (very) short introduction to them. If the reader would like a comprehensive or formal introduction to $\infty$-categories then they should look elsewhere. 
+
+This leads us to the notion of a \textit{homotopy (co)limit}. We'll give a few examples of homotopy (co)limit construcitons in the category of topological spaces, then scetch a framework for giving general cases of these so-called `homotopy-coherent' constructions - the framework of $\infty$-categories.
+
+\begin{env}[Homotopy pushouts]{Example}{green!20}{example:hpushouts}
+	Let $X, Y$ and $Z$ be (pointed) CW-complexes, and consider a diagram
+	\begin{center}
+	\begin{tikzcd}
+		Z \arrow[r,"f"]\arrow[d,"g"'] & X \\
+		Y
+	\end{tikzcd}
+	\end{center}
+	We can replace the map $f : Z \to Y$ by its \textit{mapping cylinder}\footnote{In the language of model categories we could say $M(f)$ is a `cofibrant replacement' of $f$, we will use no such language here.} $M(f) := \Big(([0,1]\times X) \sqcup Y\Big)/\sim$ where $\forall x \in X; (0,x) \sim f(x)$, so we think of $M(f)$ as gluing $\{0\}\times X$ to $Y$ via $f$ and we have an inclusion $i_f : X \cong \{1\}\times X\subseteq M(f)$. We can take the homotopy pushout of the above diagram by simply replacing $f$ and $g$ with their mapping cylinders and taking the ordinary pushout;
+	\begin{center}
+	\begin{tikzcd}
+		Z \arrow[r,"i_f"]\arrow[d,"i_g"'] & M(f) \arrow[d]\\
+		M(g) \arrow[r] & X \sqcup_Z^h Y := M(f)\sqcup_Z M(g)
+	\end{tikzcd}
+	\end{center}
+	If we choose $Z = S^1$ and $X = Y = \text{pt}$ then we can see that $\text{pt}\sqcup_{S^1}\text{pt} = \text{pt}$ whereas $\text{pt}\sqcup_{S^1}^h \text{pt} = S^2$, since $M(S^1 \to \text{pt})$ is (homotopic to) the inclusion $S^1 \hookrightarrow D^2$.
+\end{env}
+
+\begin{env}[Homotopy pullbacks]{Example}{green!20}{example:hpullback}
+Similarly if we have a diagram of (pointed) CW-complexes
+	\begin{center}
+	\begin{tikzcd}
+		& X \arrow[d,"f"] \\
+		Y \arrow[r,"g"] & Z 
+	\end{tikzcd}
+	\end{center}
+we can define the homotopy pullback by the formula
+	\[
+	X \times_Z^h Y 
+	:= \left\{(x,y,\gamma) \in X \times Y \times Z^{[0,1]} \,:\, \gamma(0) = f(x), \gamma(1)=g(y) \right\}.
+	\]
+	Thus the homotopy pullback is much like the ordinary pullback, except instead of requiring that $f(x) = g(y)$ we simply require a path between them and, importantly, that this path is part of the \textit{data} of $X \times_Z^h Y$. 
+\end{env}
+
+We can continue this game of naming a type of limit or colimit and seeing what the homotopy coherent version is, but the game becomes quickly tiresome so we invent new areas of maths instead. Historicall, Quillen invented model categories, which work via similar methods to example \ref{example:hpushouts} by replacing objects and morphisms by corresponding fibrant/cofibrant versions of them. Model categories are excellent in many ways, but their lack of higher data means certain constructions become clunky\footnote{Any reader offended by this statement is of course perfectly justified, but the author reccomends a comparison between the $\infty$-category of spectra and the many (inequivalent) model categories of spectra as justification.}. We instead opt for $\infty$-categories, modeled as quasi-categories as per Joyal and Lurie\footnote{``Aha!" says the prudent model-category officianado, "you see, you use model categories for $\infty$-categories after all''. ``Shut up," I say in return.}.
+
+Before continuing this introduction we offer a quick definition, that of the loop-spaces and suspensions of spaces as homotopy pullbacks/pushouts.
+
+\begin{definition}[Loop Spaces and Suspensions]{def:loop-suspension}
+Let $X$ be a (pointed) CW-complex. We define the loop-space $\Omega X := \text{pt} \times_X^h \text{pt}$ and suspension $\Sigma X := \text{pt} \sqcup_X^h \text{pt}$. 
+\end{definition}
+
+This definition is certainly equivalent to the classical formulas
+	\[
+	\Omega X := \text{Map}_\ast(S^1,X)
+	\text{ and }
+	\Sigma X := (X \times [0,1]) / \big( (\{0\}\times X) \cup (\{1\}\times X) \cup ([0,1]\times\{\ast\}) \big)
+	\]
+where $\ast\in X$ is the basepoint, but it allows a rather simplified proof of the functors $\Omega, \Sigma : \text{Top} \to \text{Top}$ being adjoint. If you believe us, for a moment, that in the $\infty$-category of spaces (whatever that may mean) there is an analagous universality property of the homotopy pullback and pushout then the (homotopy) pushout-pullback diagram 
+	\begin{center}
+	\begin{tikzcd}
+		\Omega\Sigma X	\arrow[rr]\arrow[dd]
+		&
+		& \text{pt}	\arrow[d]
+		\\
+		& X 		\arrow[r]\arrow[d]
+		& \text{pt}	\arrow[d]
+		\\
+		\text{pt} 	\arrow[r]
+		& \text{pt}	\arrow[r]
+		& \Sigma X
+	\end{tikzcd}
+	\end{center}
+gives us maps $X \to \Omega\Sigma X$ (by the `universal property' of the pullback and that $\text{pt} = \text{pt}$), which is the unit of the adjuntion, a similar diagram gives the counit, and the triangle identities follow from the uniqueness of the universal property. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\subsection{What homology sees}
+\subsection{What homotopy sees}
+\subsection{Homology Functors and Spectra}

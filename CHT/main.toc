@@ -11,4 +11,6 @@
 \contentsline {subsection}{\numberline {2.3}What homotopy sees}{4}{subsection.2.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.4}Homology Functors and Spectra}{4}{subsection.2.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}07th Feb}{5}{section.3}%
 \contentsfinish 
