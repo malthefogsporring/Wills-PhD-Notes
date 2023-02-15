@@ -1,0 +1,109 @@
+\newpage 
+\section{14th Feb - Localizations and R\'ecollements } 
+
+Recall from our previous discussion we have a monoidal structure on the category of spectra with unit given by $\S := \Sigma^\infty S^0$ and symmetric-monoidal product given by
+	\[
+	E \otimes F 
+	:= D(E \circ F)
+	\simeq D(E \boxtimes F)
+	\]
+	where $(E \boxtimes F)(X) := \colim_{A \wedge B \to X} E(A) \wedge F(B)$ is the Day convolution and $DF := \colim_{n\to\infty} \Omega^n F \Sigma^n$ is the Goodwillie differential. Indeed, we then get a functor $E\otimes-:\Sp\to\Sp$ which preserves colimits, and since $\Sp$ is a presentable category (see \cite{HA}) we get that it has a right adjoint, the \textit{function spectra} $E\otimes- \dashv \mathbb{F}(E,-)$ which acts as an internal hom for the $\infty$-category $\Sp$ of spectra. It has homotopy groups
+	\[
+	\pi_n \mathbb{F}(E,F) 
+	= \text{Ext}^{-i}_{\text{ho}(\Sp)}(E, F).
+	\]
+All of this structure was used to justify referring to $\Sp$ as some `homotopical' analogue of the category of abelian groups. 
+
+One feature we'd like to mimick from group theory is the idea of splitting a group into its \textit{torsion} and \textit{rational} parts. Note for instance that $H\Q \otimes H\Q = H\Q$, but $H\F_p \otimes H\F_p \not\simeq H\F_p$. 
+
+\begin{env}[Steenrod Algebra]{Example}{green!20}{ex:steenrod-algebra}
+	What is $H\F_p \otimes H\F_p$, then? Recall that we define the $E$-homology of $F$, for two spectra $E$ and $F$, as the graded abelian group $E_\ast F := \pi_\ast(E \otimes F)$, and so the spectrum $H\F_p \otimes H\F_p$ is the $H\F_p$-homology of $H\F_p$. The algebra $\mathcal{A}_p := \pi_\ast(H\F_p \otimes H\F_p)$ is called the \textit{(dual) Steenrod algebra}, and it can be shown that it is the free Hopf algebroid 
+	\[
+	\text{Sym}(\xi_1,\xi_2,\dots,\tau_0,\tau_1,\dots)
+	\]
+with comultiplication $\psi : \mathcal{A}_p \to \mathcal{A}_p\otimes\mathcal{A}_p$ given by
+	\[
+	\psi(\xi_n) = \sum_{k=0}^n \xi_{n-k}^{p^k} \otimes \xi_k
+	\qquad\text{and}\qquad 
+	\psi(\tau_n) = \tau_n\otimes1 + \sum_{k=0}^n \xi_{n-k}^{p^k} \otimes \tau_k.
+	\]
+The utility in the Steenrod algebra is that the cohomology $H^\bullet(X;\F_p)$ of any space $X$ is naturally a module over $\mathcal{A}_p$, which enables us to encode information about stable cohomology operations, and while the cup-product is not stable\footnote{Thus we can no longer use the cup-product when we think of $H^\bullet(X;\F_p)$ as an $\mathcal{A}_p$-module}, we gain the Adams Spectral Sequence, an invaluable tool to stable homotopy theorists, but more on that later. 
+\end{env}
+
+\begin{env}{Warning}{red!20}{warning:Fp-is-not-commutative}
+We do have that
+	\[
+	\Alg_{\A_\infty}(\Mod(H\F_p)) \simeq \text{DGA}(\F_p)
+	\qquad\text{and}\qquad
+	\Alg_{\E_\infty}(\Mod(H\Q)) \simeq \text{CDGA}(\Q),
+	\]
+but we don't have an equivalence $\Alg_{\E_\infty}(\Mod(H\F_p)) \not\simeq \text{CDGA}(\F_p)$ - essentially because the rational cohomology $H\Q(\Sigma_n)$ of the symmetric groups is trivial, but $H\F_p(\Sigma_n)$ is not, and the definition of $\E_\infty$-rings uses actions of the symmetric groups $\Sigma_n$ to permute elements. Thus there is some sense in which the symmetric-monoidal product of spectra really doesn't behave well with $\F_p$-homology, and we'll really need the full generality of $\E_\infty$ algebras to capture everything homotopical algebra, DGAs simply won't do.
+\end{env}
+
+The above warning tells us that rational spectra can be handled using the well-understood notion of DGAs, which in the case of $H\Q$ reduces to just studying $\Q$-algebras, but the $p$-torsion for primes $p$ is somewhat more complicated. Thus the bulk of the work here will be understanding this $p$-torsion of spectra, and that is why we need the notion of \textit{localizations}. Before defining these we'll go through an example to make sure that any definitions we do make satisfy the right properties. To whit, we will analise the $\infty$-category of quasicoherent sheaves on a scheme. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+\begin{env}{Example}{green!20}{ex:qc-sheaves-on-qcqs-schemes}
+Let $X$ be a quasi-compact and quasi-separated (qcqs) scheme, then its $\infty$-category of quasi-coherent sheaves is given by 
+	\[
+		D_{qc}(X) := \lim_{\Spec R \to X} \Mod(HR).
+	\]
+	For instance, if $X = \Spec A$ is affine then $D_{qc}(X)$ is given by $\colim_{A \to R} \Mod(HR)$, and $\Mod(HR) = D(R)$, so $D_{qc}(\Spec A)$ is given by finite projective modules over $A$, which is exactly the local condition required for a sheaf to be quasi-coherent.
+
+	Now suppose that $U \subseteq X$ is a quasi-compact Zariski-open and let $Z = X\backslash U$ so that if $U$ and $X$ are affine this says that $Z$ is given by a finitely generated ideal; it is given by the vanishing of finitely many functions.
+%
+% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+% HERE YOU SHOULD talk about how \Oa_Z is a localization of \Oa_X; this is why this is a good example 
+% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%
+If we denote the inclusions by $j : U \to X$ and $i : Z \to X$ then we get an adjuntion
+ 	\[
+		D_{qc}(X) \overset{j_\ast}{\underset{j^\ast}{\leftrightarrows}} D_{qc}(U)
+	\]
+	with $j_\ast$ fully-faithful and $j^\ast$ symmetric-monoidal\footnote{Thus we have $j^\ast\Oa_X = \Oa_U$ and $j^\ast(\Ea \otimes_{\Oa_X} \Fa) = j^\ast\Ea \otimes_{\Oa_U} j^\ast\Fa$.}. Thus we have that $j^\ast$ is a map of $\E_\infty$-rings, but $j_\ast$ is not. The projection formula $j_\ast(j^\ast\Ea \otimes_{\Oa_U} \Fa) = \Ea \otimes_{\Oa_X} j_\ast\Fa$ gives us, however, that $j_\ast$ \textit{is} a map of $\Oa_X$-modules. 
+
+	The above discussion allows us to make the statement `$U \subseteq X$ is a quasicompact Zariski-open' in purely categorical terms. Notice that $j^\ast j_\ast = \text{id}_{D_{qc}(U)}$ gives that $j_\ast$ is a split monomorphism, already categorifying the notion of `subset'. Hence understanding $D_{qc}(U) = \{\Fa \in D_{qc}(X) \,:\, \Fa \xrightarrow{\sim} j_\ast j^\ast\Fa\}$ is the same as understanding when the endofunctor $j_\ast j^\ast$ is an equivalence. The projection formula gives that
+	\[
+		j_\ast j^\ast \Fa
+		= j_\ast(j^\ast\Fa \otimes \Oa_U)
+		= \Fa \otimes_{\Oa_X} j_\ast \Oa_U,
+	\]
+	thus $j_\ast j^\ast = -\otimes_{\Oa_X} j_\ast\Oa_U$. Furthermore we that $(j_\ast j^\ast)^2 = (j_\ast j^\ast)(j_\ast j^\ast) = j_\ast (j^\ast j_\ast) j^\ast = j_\ast j^\ast$ (since $j^\ast j_\ast = \text{id}$) so that, while $j_\ast j^\ast$ isn't the identity, it is idempotent, and the multiplication map $j_\ast\Oa_U \otimes_{\Oa_X} j_\ast\Oa_U \xrightarrow{\sim} j_\ast\Oa_U$ is an isomorphism (\textsc{nB} we call such a ring $R$, whose multiplication map $R \otimes R \to R$ is an isomorphism, a \textbf{solid ring}). It can be shown that a map $f : Y \to X$ of qcqs shemes is a Zariski-open immersion if and only if $f_\ast\Oa_Y$ is a solid ring. 
+
+	Finally, we see that a subcategory $\Da \subseteq D_{qc}(X)$ is of the form $D_{qc}(U)$ for some Zariski-open $U$ if and only if $\Da$ is \textit{localizing} and \textit{smashing}. A subcategory $\Da$ of a (complete, cocomplete, presentable) stable $\infty$-category $\Ca$ is \textit{localizing} if it's a full subcategory and the inclustion $U : \Da \hookrightarrow \Ca$ has a left adjoint $F$ such that $L^2 = L$ for $L := UF$. A localizing subcategory is \textit{smashing} if further $\Ca$ and $\Da$ are symmetric-monoidal with $F$ symmetric-monoidal and $U$ a $\Ca$-module map; $U(b \otimes Fc) = Ub \otimes c$. 
+\end{env}
+
+Note the analogy with $H\Q \otimes_\S H\Q = H\Q$ here. We see that $H\Q$ is a solid ring, and in fact $\Q$ is the only solid ring of characteristic zero, and thus the de-Rham--Quillen adjunction between simplicial sets and connective CDGAs is idempotent only over $\Q$ (this is exatly the statement of warning \ref{warning:Fp-is-not-commutative}) and it is in this way that we should think of $H\Q$ as being an `open subscheme' of the sphere spectrum $\S$. The $H\F_p$ spectra, however, are \textit{closed} immersions, and we the goal of chromatic homotopy theory is to rebuild $\S$ out of $H\Q$ and the $H\F_p$ as a r\'ecollemont, which we will discuss now. 
+
+If $U \subseteq X$ is a quasi-compact open as in example \ref{ex:qc-sheaves-on-qcqs-schemes} above, and $Z := X \backslash U$, then we get a \textbf{r\'ecollemont}; we can rebuild $D_{qc}(X)$ out of $D_{qc}(U)$ and $D_Z(X) := \ker(j^\ast : D_{qc}(X) \to D_{qc}(U))$ as follows. 
+
+% Stratify X over \{0,1\} by sending U to 1 and Z to 0, then Ayala-Fancis that shit. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

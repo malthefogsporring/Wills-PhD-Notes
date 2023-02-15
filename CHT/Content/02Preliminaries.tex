@@ -2,9 +2,8 @@
 \section{Preliminaries}
 \subsection{Higher categories, homotopy (co)limits and Spaces}
 
-We restrict our attention to the category $\text{Top}$ of topologcial spaces. We would like a notion of (co)limit which is invariant under homotopy. For instance, if $X \simeq X'$ then we would like the pushouts $X \sqcup_Z Y$ and $X' \sqcup_Z Y$ to be homotopy equivalent for all $Y$ and $Z$. This typically dramatically fails, for instance, if we choose $X = Y = \text{pt}$ then the pushout $X \sqcup_{S^1} Y = \text{pt} \sqcup_Z \text{pt} = \text{pt}$, but if $X = \text{pt} \simeq D^2$, the unit disk in $\mathbb{R}^2$, and in this case we have that $D^2 \sqcup_{S^1} D^2 \simeq S^2$, the sphere, and certainly $S^2 \not\simeq \text{pt}$.
-
-%There are a few ways of fixing this, and in this seminar we will opt for the notion of $\infty$-categories, and so this section provides a (very) short introduction to them. If the reader would like a comprehensive or formal introduction to $\infty$-categories then they should look elsewhere. 
+\subsubsection{Homotopy (co)limits}
+We restrict our attention to the category $\text{Top}$ of topologcial spaces. We would like a notion of (co)limit which is invariant under homotopy. For instance, if $X \simeq X'$ then we would like the pushouts $X \sqcup_Z Y$ and $X' \sqcup_Z Y$ to be homotopy equivalent for all $Y$ and $Z$. This typically dramatically fails, for instance, if we choose $X = Y = \text{pt}$ then the pushout $X \sqcup_{S^1} Y = \text{pt} \sqcup_Z \text{pt} = \text{pt}$, but if we replace the point with $X = \text{pt} \simeq D^2$, the unit disk in $\mathbb{R}^2$, then in this case we have that $D^2 \sqcup_{S^1} D^2 \simeq S^2$, the sphere, and certainly $S^2 \not\simeq \text{pt}$.
 
 This leads us to the notion of a \textit{homotopy (co)limit}. We'll give a few examples of homotopy (co)limit construcitons in the category of topological spaces, then scetch a framework for giving general cases of these so-called `homotopy-coherent' constructions - the framework of $\infty$-categories.
 
@@ -75,9 +74,218 @@ gives us maps $X \to \Omega\Sigma X$ (by the `universal property' of the pullbac
 
 
 
+\subsubsection{Simplicial sets}
+Ok, so what is a simplicial set? The plan is as follows; we'll define a category $\Delta$, called the `simplex' or simply `delta' category, which allows us to define `simplicial objects' in a category $C$. Simplicial sets are then simplicial objects in the category of sets, and they give a particularly nice way of modelling of the homotopy theory of spaces (not dissimilar to CW-complexes, but more `combinatorial'). 
+
+\begin{definition}[Simplicial Objects]{def:delta}
+	Let $\Delta \subseteq \text{PoSet}$ be the category of \textit{finite, linearly ordered posets} and order-preserving maps, thus each object in $\Delta$ is equivalent to a poset $[n] := \{0 < 1 < \dots < n\}$. If $\Ca$ is a category then by a \textit{simplicial object} of $\Ca$ we will mean a functor $\Delta^\text{op} \to \Ca$. The \textbf{category of simplicial objects} $s\Ca$ is the category $\Hom(\Delta^\text{op},\Ca)$ of functors and natural transformations. 
+\end{definition}
+
+If we choose $\Ca = \Set$ in the above definition then we can analyse what data a simplicial set $X : \Delta^\text{op} \to \Set$ gives us. For each natural number $n \in \N$ we have a set $X_n := X([n])$ and we have maps $X_n \to X_m$ corresponding to the order-preserving maps $[m] \to [n]$ (note the op in $\Delta^\text{op}$ reversing the direction of the arrows). We can actually generate all of the maps $[m]\to[n]$ by looking at two special classes of maps; the \textit{face} $\delta_i$ and \textit{degeneracy} $\sigma_i$ maps given by
+	\begin{align*}
+		\delta_i &: [n-1] \to [n],
+		\quad k \mapsto
+		\begin{cases}
+			k	&\text{if } k < i \\
+			k+1	&\text{if } k \geq i
+		\end{cases}
+	\\
+		\delta_i &: [n] \to [n-1],
+		\quad k \mapsto
+		\begin{cases}
+			k	&\text{if } k \leq i \\
+			k-1	&\text{if } k > i
+		\end{cases}
+	\end{align*}
+	whence it can easily (if tediously) be shown that any map $[m] \to [n]$ can be written as a composition of face and degeneracy maps. 
+
+	If $X : \Delta^\text{op} \to \Set$ is a simplicial set then we can apply $X$ to the face and degenerace maps in the category $\Delta$ above to get face $d_i := X(\delta_i) : X_n \to X_{n-1}$ and degeneracy $s_i := X(\sigma_i) : X_{n-1} \to X_n$ maps for $X$ (again, note the reversal of arrows after aplying $X$). We write the following diagram for a simplicial set $X : \Delta^\text{op} \to \Set$, where the maps 
+
+	\begin{figure}[ht!]
+	\centering
+	\begin{tikzcd}[row sep=3em,column sep=3em]
+		X_0 \arrow[r]
+		&X_1
+			\arrow[l, shift left = 2]\arrow[l,shift right = 2]
+			\arrow[r,shift left=2]\arrow[r,shift right=2]
+		&X_2
+			\arrow[l, shift left = 4]\arrow[l]\arrow[l,shift right = 4]
+			\arrow[r,shift left=4]\arrow[r]\arrow[r,shift right=4]
+		&X_3 \cdots
+			\arrow[l, shift left = 2]
+			\arrow[l, shift right = 2]
+			\arrow[l, shift left = 6]
+			\arrow[l, shift right = 6]
+	\end{tikzcd}
+	\caption{A simplicial set $X : \Delta^\text{op} \to \Set$.}
+	\label{fig:sset-diagram}
+	\end{figure}
+	In figure \ref{fig:sset-diagram} the maps going left are the face maps and the maps going right are the degenaracy maps. The intuition here is that the face maps take an `$n$-cell' $x$ (an element $x \in X_n$) and give the $i^\text{th}$ face $d_i(x)$ of $x$, whereas the degeneracy maps give a degenerate $n$-cell from an $n-1$ cell. We'll give two examples of simplicial sets now, these are in fact our prototypical examples of $\infty$-categories.
+
+\begin{env}[Nerve of a Category]{Example}{green!20}{ex:nerve-of-cat}
+	Let $\Ca$ be an ordinary category, we can form a simplicial set $N(\Ca) : \Delta^\text{op} \to \Set$ by sending $[n]$ to the set $N(\Ca)_n$ of sequences of $n$ composable maps
+	\begin{equation}\label{eqn:sequence-of-maps}
+	x_0
+	\xrightarrow{f_0} x_1
+	\xrightarrow{f_1} x_2
+	\xrightarrow{f_2}
+	\dots
+	\xrightarrow{f_{n-1}} x_n.
+	\end{equation}
+	The $i^\text{th}$ face map send a sequence of $n$ maps to a sequence of $n-1$ maps by composing the $i^\text{th}$ and the $(i+1)^\text{th}$ map, so the above sequence would get sent to the $n-1$ sequence
+	\[
+	x_0
+	\xrightarrow{f_0} x_1
+	\xrightarrow{f_1} x_2
+	\dots
+	x_{i-1} \xrightarrow{f_i \circ f_{i-1}} x_{i+1}
+	\dots
+	\xrightarrow{f_{n-1}} x_n.
+	\]
+under $d_i$. The degeneracy map $s_i$ is given by inserting an identity map to get a sequence of length $n+1$, so the $n$-sequence in equation \ref{eqn:sequence-of-maps} would get sent to the $n+1$ sequence
+	\[
+	x_0
+	\xrightarrow{f_0} x_1
+	\xrightarrow{f_1} x_2
+	\dots
+	x_i \xrightarrow{\text{id}_{x_i}} x_i
+	\dots
+	\xrightarrow{f_{n-1}} x_n.
+	\]
+\end{env}
+
+\begin{env}[Homotopy Types]{Example}{green!20}{ex:homotopy-types}
+	Let $Y$ be a CW-complex, then we can get a simplicial set $\text{Sing}(Y) : \Delta^\text{op} \to \Set$ by sending $[n] \mapsto \Hom_\Top(|\Delta^n|,Y)$ where
+	\[
+		|\Delta^n|
+		:= \Big\{
+			(t_0,\dots,t_n) \in \R^{n+1}
+			\,:\,
+			\sum_{k=0}^n t_k = 1
+		\Big\}
+	\]
+	is the so-called \textit{topological $n$-simplex}. Thus $\text{Sing}(Y)_1$ is the set of paths in $Y$. The face maps send an $n$-simplex to its $i^\text{th}$ face, for example there are two maps $\text{Sing}(Y)_1 \to \text{Sing}(Y)_0$ sending a path to either one of its endpoints. The degeneragy maps send an $n-1$ simplex to the constant $n$-simplex, so a point $y \in Y = \text{Sing}(Y)_0$ would be sent to the constant path at $y$ under the degeneracy map $\text{Sing}(Y)_0 \to \text{Sing}(Y)_1$. 
+\end{env}
+
+The two preceeding examples show that the theory of simplicial sets subsumes both category theory and homotopy theory. They also show the typical approach to getting $\infty$-categories from some other mathematical object - we have to find some kind of nerve construction. This `nerve' was $N$ for categories and $\text{Sing}$ for topological spaces, and later we will see that the $\infty$-category of $\infty$-categories will be given by constructing a 2-category of $\infty$-categories and taking its \textit{coherent nerve}, which is simply an analogue of $N$ or $\text{Sing}$ for 2-categories instead of 1-categories or topological spaces. The $\infty$-category of cdgas\footnote{Commutative differential graded algebras} is constructed using a differential-graded nerve $N^{dg}$ in \cite{HA}, but the category of spectra is formed by taking a limit of a diagram of $\infty$-categories, and so this will be our first example of an $\infty$-category which isn't contructed via a nerve (though it certainly could be).
+
+We have seen how to get a simplicial set $\text{Sing}(Y)$ from a topological space $Y$, but we can also get a topoplogical space $|X|$ from a simplicial set $X : \Delta^\text{op} \to \Set$, called the \textit{geometric realization}. To do this we start by defining what will become our analogues of disks for CW-complexes;
+
+\begin{definition}[Standard Simplex]{def:standard-simplex}
+	The \textbf{standard $n$-simplex} is the representable functor
+		\[
+		\Delta^n : \Delta^\text{op} \to \Set,
+		\qquad 
+		[n] \mapsto \Hom_\Delta(-,[n]).
+		\]
+\end{definition}
+
+Note that if $X : \Delta^\text{op} \to \Set$ is another simplicial set then the Yoneda lemma gives us that $\Hom_{s\Set}(\Delta^n,X) \cong X_n$, so in some sense these standard $n$-simplicies are `detecting' all the $n$-simplicies of $X$. Note the similarity between $\Delta^n$ and the role that disk $D^n$ plays for CW-complexes. In particular, note that $\Hom_{s\Set}(\Delta^0,\text{Sing}(Y)) \cong \text{Sing}(Y)_0$ recovers the points of our space $Y$. This leads us to the idea of realization.
+
+\begin{definition}[Geometric Realization]{def:geometric-realization}
+	The \textbf{geometric realization} of a simplicial set $X : \Delta^\text{op} \to \Set$ is the topological space 
+		\[
+		|X|
+		:= \underset{\Delta^n \to X}{\colim} |\Delta^n|
+		\]
+where $|\Delta^n|$ is the topological $n$-simplex of example \ref{ex:homotopy-types}.
+\end{definition}
+
+Any reader familiar with Kan-extensions might be interested to know that the geometric realization functor $|-| : s\Set \to \Top$ was the first example of a Kan-extension.
+
+\begin{theorem}{thm:geometric-realization-sing-adjoint}
+	The functors $|-| : s\Set \leftrightarrows \Top : \text{Sing}$ form an adjunction. 
+\end{theorem}
+
+This adjunction can be realized to be a `Quillen adjunction', which says that the homotopy theory of simplicial sets is in some sense equivalent to the homotopy theory of topoplogical spaces. It turns out that the objects representing homotopy types are exactly the $\infty$-groupoids and it is this that justifies calling an $\infty$-groupoid a `space'.
 
 
 
+
+\newpage
+\subsubsection{Higher categories}
+
+Finally, we move onto the definition of an $\infty$-category, which are simplicial sets $X : \Delta^\text{op} \to \Set$ satisfying some particular coniditions, and example \ref{ex:nerve-of-cat} defining the nerve $N(C)$ of a category already hints at the idea. We will want $X_0$ to be our objects and $X_1$ to be our morphisms, the fact that we have an identity map $1_x : x \to x$ for every object $x \in X_0$ is already satisfied by setting $1_x := s_0(x)$, the degenerate 1-simplex corresponding to our 0-simplex $x$. The $n$-simplicies $X_n$ should be thought of as sequences of maps
+	\[
+	x_0 \xrightarrow{f_0} x_1 \to \dots \to x_{n-1} \xrightarrow{f_{n-1}} x_n
+	\]
+	where the domain of $f_k$ agrees with the codomain of $f_{k-1}$. We want to say `composable' maps here but we run into a problem. We want our theory of $\infty$-categories to subsume the theory of thr homotopy theory of spaces, but if we think of $X$ as a space instead of a category we realise that paths in a space don't have a unique composition. So the property defining an $\infty$-category should give a not-neccecarily unique way to compose 1-simplicies to live somewhere between the theory of categories and the homotopy theory of spaces. Luckily that's not actually particularly hard.
+
+We define the $n,k$-horns $\Lambda^n_k$ by the formula 
+	\[
+	\Lambda^n_k : \Delta^\text{op} \to \Set,
+	\qquad
+	\Lambda^n_k := \bigcup_{k \in E \subsetneq [n]} \Delta^E.
+	\]
+which upon first sight confuses anyone and everyone, which is why no higher category theorist ever uses this formula and just uses pictures instead, and forunately the 2-horns give essentially all the intution you'll need.
+
+Let's look at the $(n,k) = (2,1)$ case first, i.e. $\Lambda^2_1$. In any case, the union runs over the subsets $E \subsetneq [n]$ which contain $k=1$, the possible options for $E$ are thus $E_1 := \{1\}, E_0 := \{0<1\}$ and $E_2 := \{1<2\}$.
+\begin{itemize}
+	\item{
+	The 0-simplicies $\Lambda^2_1([0])$ are given by the union of the $\Delta^E([0]) = \Hom([0],E)$.
+	Evaluating this for $E_1$, $E_2$ and $E_3$ gives
+		\begin{align*}
+			\Delta^{E_0}([0]) = \Hom([0],E_2) = \{0\} \\
+			\Delta^{E_1}([0]) = \Hom([0],E_1) = \{1\} \\
+			\Delta^{E_2}([0]) = \Hom([0],E_2) = \{1,2\}
+		\end{align*}
+	and so the union over all of these gives $\Lambda^2_1([0]) = \{0,1,2\}$. 
+	}
+	\item{
+	The 1-simplicies $\Lambda^2_1([1])$ are given similarly by the union of the $\Delta^E([1]) = \Hom([1],E)$, noting that any non-injective maps correspond to degenerate simplicies we are free to only look at injective maps $\Hom([1],E_i)$, these turn out to be given by just $\Lambda^2_1([1]) = \{\text{id}_{E_0}, f\}$ where $f : [1] \to E_2$ sends $f(0)=1$ and $f(1)=2$. 
+	}
+\end{itemize}
+
+Putting this all together we have three 0-simplicies $\{0,1,2\}$ and two 1-simplicies $\{0<1, 1<2\}$ which can be put into a pretty picture like so
+	\begin{figure}[ht!]
+	\centering
+	\begin{tikzcd}
+		& 1 \arrow[dr] \\
+		0\arrow[ur] && 2
+	\end{tikzcd}
+	\end{figure}
+
+Doing the same thing for $\Lambda^2_0$ and $\Lambda^2_2$ will give you the following pictures.
+	\begin{figure}[ht!]
+	\centering
+	\begin{tikzcd}
+		& 1 \\
+		0\arrow[ur]\arrow[rr] && 2
+	\end{tikzcd}
+	and 
+	\begin{tikzcd}
+		& 1 \arrow[dr] \\
+		0\arrow[rr] && 2
+	\end{tikzcd}
+	\end{figure}
+
+The way to easily remember these pictures is to say that `$\Lambda^2_k$ is the triangle with the edge oppsite the $k$-vertex removed'. Similarly $\Lambda^n_k$ is the $n$-simplex with the face opposite the $k$-vertex removed. 
+
+\begin{definition}{def:inner/outer-horn}
+	Let $\Lambda^n_k$ be the horns as above. We call the horns with $k=0$ or $k=n$ (i.e. $\Lambda^n_n$ and $\Lambda^n_0$) the \textbf{outer horns}. The horns with $0<k<n$ are called the \textbf{inner horns}.
+\end{definition}
+
+The inner horn $\Lambda^2_1$ looks a lot like a pair of composable arrows. In fact, finding a composition will correspond to finding an arrow $0 \to 2$ with a 2-simplex with the arrows $0 \to 1$, $1 \to 2$ and $0 \to 2$ as its boundary. This motivates the following.
+
+\begin{definition}[$\infty$-category]{def:infinity-category}
+	An \textbf{$\infty$-category} is a simplicial set $X : \Delta^\text{op} \to \Set$ such that any map $\Lambda^n_k \to X$ with $k \neq 0,n$ (so $\Lambda^n_k$ is an inner horn) has a lift to a map $\Delta^n \to X$. In other words, $X$ is an $\infty$-category if the restriction map
+	\[
+	\Hom_{s\Set}(\Lambda^n_k,X)
+	\to
+	\Hom_{s\Set}(\Delta^n,X) 
+	\]
+is a surjection for $k\neq0,n$.
+\end{definition}
+
+\begin{definition}[$\infty$-groupoid]{def:infinity-groupoid}
+	An \textbf{$\infty$-groupoid} is a simplicial set $X : \Delta^\text{op} \to \Set$ such that any map $\Lambda^n_k \to X$ (so $\Lambda^n_k$ is an inner \textit{or outer} horn) has a lift to a map $\Delta^n \to X$. In other words, $X$ is an $\infty$-groupoid if the restriction map
+	\[
+	\Hom_{s\Set}(\Lambda^n_k,X)
+	\to
+	\Hom_{s\Set}(\Delta^n,X) 
+	\]
+is a surjection for all $k$.
+\end{definition}
 
 
 

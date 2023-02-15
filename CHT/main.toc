@@ -6,11 +6,19 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1}Higher categories, homotopy (co)limits and Spaces}{2}{subsection.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2}What homology sees}{4}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.1.1}Homotopy (co)limits}{2}{subsubsection.2.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3}What homotopy sees}{4}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.1.2}Simplicial sets}{3}{subsubsection.2.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4}Homology Functors and Spectra}{4}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.1.3}Higher categories}{6}{subsubsection.2.1.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}07th Feb}{5}{section.3}%
+\contentsline {subsection}{\numberline {2.2}What homology sees}{8}{subsection.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3}What homotopy sees}{8}{subsection.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.4}Homology Functors and Spectra}{8}{subsection.2.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}07th Feb}{9}{section.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}14th Feb - Localizations and R\'ecollements }{10}{section.4}%
 \contentsfinish 
