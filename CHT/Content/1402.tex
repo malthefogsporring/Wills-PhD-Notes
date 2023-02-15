@@ -43,11 +43,6 @@ but we don't have an equivalence $\Alg_{\E_\infty}(\Mod(H\F_p)) \not\simeq \text
 The above warning tells us that rational spectra can be handled using the well-understood notion of DGAs, which in the case of $H\Q$ reduces to just studying $\Q$-algebras, but the $p$-torsion for primes $p$ is somewhat more complicated. Thus the bulk of the work here will be understanding this $p$-torsion of spectra, and that is why we need the notion of \textit{localizations}. Before defining these we'll go through an example to make sure that any definitions we do make satisfy the right properties. To whit, we will analise the $\infty$-category of quasicoherent sheaves on a scheme. 
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 
@@ -81,13 +76,16 @@ If we denote the inclusions by $j : U \to X$ and $i : Z \to X$ then we get an ad
 	Finally, we see that a subcategory $\Da \subseteq D_{qc}(X)$ is of the form $D_{qc}(U)$ for some Zariski-open $U$ if and only if $\Da$ is \textit{localizing} and \textit{smashing}. A subcategory $\Da$ of a (complete, cocomplete, presentable) stable $\infty$-category $\Ca$ is \textit{localizing} if it's a full subcategory and the inclustion $U : \Da \hookrightarrow \Ca$ has a left adjoint $F$ such that $L^2 = L$ for $L := UF$. A localizing subcategory is \textit{smashing} if further $\Ca$ and $\Da$ are symmetric-monoidal with $F$ symmetric-monoidal and $U$ a $\Ca$-module map; $U(b \otimes Fc) = Ub \otimes c$. 
 \end{env}
 
-Note the analogy with $H\Q \otimes_\S H\Q = H\Q$ here. We see that $H\Q$ is a solid ring, and in fact $\Q$ is the only solid ring of characteristic zero, and thus the de-Rham--Quillen adjunction between simplicial sets and connective CDGAs is idempotent only over $\Q$ (this is exatly the statement of warning \ref{warning:Fp-is-not-commutative}) and it is in this way that we should think of $H\Q$ as being an `open subscheme' of the sphere spectrum $\S$. The $H\F_p$ spectra, however, are \textit{closed} immersions, and we the goal of chromatic homotopy theory is to rebuild $\S$ out of $H\Q$ and the $H\F_p$ as a r\'ecollemont, which we will discuss now. 
+Note the analogy with $H\Q \otimes_\S H\Q = H\Q$ here. We see that $H\Q$ is a solid ring, and in fact $\Q$ is the only solid ring of characteristic zero, and thus the de-Rham--Quillen adjunction between simplicial sets and connective CDGAs is idempotent only over $\Q$ (this is exatly the statement of warning \ref{warning:Fp-is-not-commutative}) and it is in this way that we should think of $H\Q$ as being an `open subscheme'\footnote{Actually, $\S \to H\Q$ is not finite and so we should more appropriately think of $H\Q$ as a `pro-open' subscheme.} of the sphere spectrum $\S$. The $H\F_p$ spectra, however, are \textit{closed} immersions, and we the goal of chromatic homotopy theory is to rebuild $\S$ out of $H\Q$ and the $H\F_p$ as a r\'ecollemont, which we will discuss now. 
 
 If $U \subseteq X$ is a quasi-compact open as in example \ref{ex:qc-sheaves-on-qcqs-schemes} above, and $Z := X \backslash U$, then we get a \textbf{r\'ecollemont}; we can rebuild $D_{qc}(X)$ out of $D_{qc}(U)$ and $D_Z(X) := \ker(j^\ast : D_{qc}(X) \to D_{qc}(U))$ as follows. 
 
-% Stratify X over \{0,1\} by sending U to 1 and Z to 0, then Ayala-Fancis that shit. 
 
+% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%%%%% Stratify X over \{0,1\} by sending U to 1 and Z to 0, then Ayala-Fancis that shit. 
 
+% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%%%%% TALK ABOUT COMPACT OBJECTS
 
 
 
