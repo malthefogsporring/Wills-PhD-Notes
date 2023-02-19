@@ -1,6 +1,6 @@
 \newpage
 \section{Preliminaries}
-\subsection{Higher categories, homotopy (co)limits and Spaces}
+\subsection{Higher categories, homotopy (co)limits and Spaces}\label{sec:infinity-categories}
 
 \subsubsection{Homotopy (co)limits}
 We restrict our attention to the category $\text{Top}$ of topologcial spaces. We would like a notion of (co)limit which is invariant under homotopy. For instance, if $X \simeq X'$ then we would like the pushouts $X \sqcup_Z Y$ and $X' \sqcup_Z Y$ to be homotopy equivalent for all $Y$ and $Z$. This typically dramatically fails, for instance, if we choose $X = Y = \text{pt}$ then the pushout $X \sqcup_{S^1} Y = \text{pt} \sqcup_Z \text{pt} = \text{pt}$, but if we replace the point with $X = \text{pt} \simeq D^2$, the unit disk in $\mathbb{R}^2$, then in this case we have that $D^2 \sqcup_{S^1} D^2 \simeq S^2$, the sphere, and certainly $S^2 \not\simeq \text{pt}$.
@@ -288,27 +288,5 @@ is a surjection for all $k$.
 \end{definition}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\newpage
-\subsection{What homology sees}
-\subsection{What homotopy sees}
-\subsection{Homology Functors and Spectra}
+\subsection{The category of spectra}\label{sec:spectra}
+\input{Content/1402.tex}
