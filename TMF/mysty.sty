@@ -247,6 +247,12 @@
 \def \Hk {\mathfrak{H}}
 \def \Xk {\mathfrak{X}}
 \def \gk {\mathfrak{g}}
+%\font\maljapanese=dmjhira at 2 ex
+%\def \yo {\maljapanese\char"4D}
+\DeclareFontFamily{U}{min}{}
+\DeclareFontShape{U}{min}{m}{n}{<-> udmj30}{}
+\def \yo {\text{\usefont{U}{min}{m}{n}\symbol{'210}}}
+
 
 %%% Common Categories & functions
 \def \Ca {\mathcal{C}}
@@ -260,10 +266,13 @@
 \def \Mor {\text{Mor}}
 \def \id {\text{id}}
 \def \Fun {\text{Fun}}
+\def \Mod {\text{Mod}}
 \def \pr {\text{pr}}
 \def \Aut {\text{Aut}}
 \def \End {\text{End}}
 \def \Hom {\text{Hom}}
+
+\def \MU {\text{MU}}
 
 %%% Vectors and Matricies
 \def \x {{\mathbf{x}}}
@@ -271,6 +280,10 @@
 \def \v {{\mathbf{v}}}
 \def \GL {\textrm{GL}}
 \def \act {\curvearrowright}
+
+\def \colim {\text{colim}}
+
+
 
 \endinput
 %%

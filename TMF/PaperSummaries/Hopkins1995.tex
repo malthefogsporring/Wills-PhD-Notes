@@ -1,0 +1,25 @@
+\title{Topological Modular Forms, the Witten Genus and the Theorem of the cube}
+\author{Hopkins, 1995}
+\usepackage{amsmath,amsthm}
+
+\begin{document}
+
+
+\section*{Introduction}
+Let $\Omega$ be a cobordism ring (spectrum) and $R$ a commutative ring. An $R$-valued $\Omega$-genus is a ring homomorphism $\Phi : \Omega \to R$, i.e. $\Phi$ sends a manifold $M$ to an element $\Phi(M) \in R$ such that $\Phi(M \sqcup M') = \Phi(M) + \Phi(M')$, $\Phi(M \times M') = \Phi(M)\Phi(M')$ and $\Phi(\del M)= 0$. It can be shown that $\text{MSO}_\ast \otimes \mathbb{Q} = \mathbb{Q}[\mathbb{C}P^2, \mathbb{C}P^4, \dots]$, and that if $R$ is torsion free then $\Phi$ is determined by its values on the $\mathbb{C}P^n$. 
+
+We can define a logarithmic generating function 
+	\[
+	\log_\Phi(z) = \sum_{n\in\mathbb{N}} \Phi(\mathbb{C}P^n) \frac{z^{n+1}}{n+1}
+	\]
+with inverse $\exp_\Phi$, allowing us to define the \textbf{characteristic series}
+	\[
+	K_\Phi(z) = \frac{z}{\exp_\Phi(z)}.
+	\]
+	An $R$-valued $\Omega$-genus $R$ for torsion-free $R$ factors through the oriented cobordism ring $\text{MSO}_\ast$ if and only if the characteristic series is even; $K_\Phi(z) = K_\Phi(-z)$. From this we see the importance of even-ness in oriented cohomology theories and their realtion to formal power series.
+
+
+
+
+
+\end{document}
