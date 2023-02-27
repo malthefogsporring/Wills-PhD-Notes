@@ -1,0 +1,13 @@
+# Ignore LaTeX log files 
+*/main.aux
+*/main.blg
+*/main.fls
+*/main.out
+*/main.bcf
+*/main.fdb_latexmk
+*/main.log
+*/main.toc
+
+# Ignore my personal notes
+./WIP/
+
