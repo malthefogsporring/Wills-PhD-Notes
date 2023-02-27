@@ -19,6 +19,135 @@
 
 \refsection{0}
   \datalist[entry]{apa/global//global/global}
+    \entry{Ando2008}{misc}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=717cbd89e32db1aede5d09594b22478e}{%
+           family={Ando},
+           familyi={A\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e73a532bb1be860b8805a2c71d2aa224}{%
+           family={Blumberg},
+           familyi={B\bibinitperiod},
+           given={Andrew\bibnamedelima J.},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=66299145450c0323ff91f07850857ee8}{%
+           family={Gepner},
+           familyi={G\bibinitperiod},
+           given={David\bibnamedelima J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b0d11472e9bb092317f71e67e46d1f55}{%
+           family={Hopkins},
+           familyi={H\bibinitperiod},
+           given={Michael\bibnamedelima J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=71cc51e3c0ac090026d1e96750933ae0}{%
+           family={Rezk},
+           familyi={R\bibinitperiod},
+           given={Charles},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{66ccb1c179ac9c669e9a58b0c9051e3d}
+      \strng{fullhash}{199f2f3aabddf66bc87cac8981109325}
+      \strng{bibnamehash}{199f2f3aabddf66bc87cac8981109325}
+      \strng{authorbibnamehash}{199f2f3aabddf66bc87cac8981109325}
+      \strng{authornamehash}{66ccb1c179ac9c669e9a58b0c9051e3d}
+      \strng{authorfullhash}{199f2f3aabddf66bc87cac8981109325}
+      \field{extraname}{1}
+      \field{sortinit}{A}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Units of ring spectra and Thom spectra}
+      \field{year}{2008}
+      \verb{doi}
+      \verb 10.48550/ARXIV.0810.4535
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/0810.4535
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/0810.4535
+      \endverb
+      \keyw{Algebraic Topology (math.AT),FOS: Mathematics,FOS: Mathematics,55N20}
+    \endentry
+    \entry{Ando2013}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=717cbd89e32db1aede5d09594b22478e}{%
+           family={Ando},
+           familyi={A\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=71cc51e3c0ac090026d1e96750933ae0}{%
+           family={Rezk},
+           familyi={R\bibinitperiod},
+           given={Charles},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e73a532bb1be860b8805a2c71d2aa224}{%
+           family={Blumberg},
+           familyi={B\bibinitperiod},
+           given={Andrew\bibnamedelima J.},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a7d7b23f07c3b62e38dc6f2f4dd245b4}{%
+           family={Gepner},
+           familyi={G\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b0d11472e9bb092317f71e67e46d1f55}{%
+           family={Hopkins},
+           familyi={H\bibinitperiod},
+           given={Michael\bibnamedelima J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{66ccb1c179ac9c669e9a58b0c9051e3d}
+      \strng{fullhash}{bf3dbc8093b8fbabf314af9fd805eae0}
+      \strng{bibnamehash}{bf3dbc8093b8fbabf314af9fd805eae0}
+      \strng{authorbibnamehash}{bf3dbc8093b8fbabf314af9fd805eae0}
+      \strng{authornamehash}{66ccb1c179ac9c669e9a58b0c9051e3d}
+      \strng{authorfullhash}{bf3dbc8093b8fbabf314af9fd805eae0}
+      \field{extraname}{2}
+      \field{sortinit}{A}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Topology}
+      \field{month}{10}
+      \field{number}{3}
+      \field{title}{An {$\infty$}-categorical approach to {$R$}-line bundles, {$R$}-module Thom spectra, and twisted {$R$}-homology}
+      \field{volume}{7}
+      \field{year}{2013}
+      \field{pages}{869\bibrangedash 893}
+      \range{pages}{25}
+      \verb{doi}
+      \verb 10.1112/jtopol/jtt035
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1112\%2Fjtopol\%2Fjtt035
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1112%5C%2Fjtopol%5C%2Fjtt035
+      \endverb
+    \endentry
     \entry{Hess18}{misc}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=fdfb6457a31af9c67afd61478567c478}{%
@@ -67,7 +196,45 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Higher Algebra}
-      \field{year}{20??}
+      \field{year}{2017}
+    \endentry
+    \entry{Mazel-Gee2018}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7855a594e677ea9946a664de18c3e06a}{%
+           family={Mazel-Gee},
+           familyi={M\bibinithyphendelim G\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{7855a594e677ea9946a664de18c3e06a}
+      \strng{fullhash}{7855a594e677ea9946a664de18c3e06a}
+      \strng{bibnamehash}{7855a594e677ea9946a664de18c3e06a}
+      \strng{authorbibnamehash}{7855a594e677ea9946a664de18c3e06a}
+      \strng{authornamehash}{7855a594e677ea9946a664de18c3e06a}
+      \strng{authorfullhash}{7855a594e677ea9946a664de18c3e06a}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Goerss--Hopkins obstruction theory for {$\infty$}-categories}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.48550/ARXIV.1812.07624
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1812.07624
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1812.07624
+      \endverb
+      \keyw{Algebraic Topology (math.AT),Category Theory (math.CT),FOS: Mathematics}
     \endentry
     \entry{Mesablishvili06}{misc}{}
       \name{author}{1}{}{%
